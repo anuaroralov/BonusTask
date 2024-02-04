@@ -1,8 +1,9 @@
 package com.anuar.bonustask
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.anuar.bonustask.databinding.ActivityDetailBinding
+
 
 class DetailActivity : AppCompatActivity() {
 
@@ -12,10 +13,10 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
-
-        viewBinding.textView.text= String.format("Name: %s", intent.getStringExtra("name"))
-        viewBinding.textView2.text= String.format("Last name: %s", intent.getStringExtra("lastName"))
-        viewBinding.textView3.text= String.format("Age: %s", intent.getStringExtra("age"))
-        viewBinding.textView4.text= String.format("Login: %s", intent.getStringExtra("login"))
+        val person = intent.getSerializableExtra("person") as Person?
+        viewBinding.textView.text= String.format("Name: %s", person?.name)
+        viewBinding.textView2.text= String.format("Last name: %s", person?.lastName)
+        viewBinding.textView3.text= String.format("Age: %s", person?.age)
+        viewBinding.textView4.text= String.format("Login: %s", person?.login)
     }
 }

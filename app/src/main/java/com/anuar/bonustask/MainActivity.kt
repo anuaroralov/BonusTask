@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
         viewBinding.button.setOnClickListener{
 
             val intent = Intent(this, DetailActivity::class.java)
-            intent.putExtra("name", viewBinding.editTextText.text.toString())
-            intent.putExtra("lastName", viewBinding.editTextText2.text.toString())
-            intent.putExtra("age", viewBinding.editTextNumber.text.toString())
-            intent.putExtra("login", viewBinding.editTextText3.text.toString())
+            intent.putExtra("person",Person( viewBinding.editTextText.text.toString(),
+                    viewBinding.editTextText2.text.toString(),
+                    viewBinding.editTextNumber.text.toString().toInt(),
+                    viewBinding.editTextText3.text.toString()))
             startActivity(intent)
         }
     }
